@@ -7,19 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DBA10506E6DFBD2D962474E /* ImageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1807701D5B6DC3834C59 /* ImageInfoView.swift */; };
 		2DBA15154FB46A443342AEB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA158847D0D906F19F4066 /* Assets.xcassets */; };
+		2DBA159D563B8FCE69D347CA /* UnsplashUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A72648AE48C31826297 /* UnsplashUserInfo.swift */; };
+		2DBA15C26EEA22A36DF6804F /* InfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1CD38344C93DD9D37AA3 /* InfoLabel.swift */; };
 		2DBA1684D0BA7ACE95C47ABE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA17024FF14A1440131A22 /* AppDelegate.swift */; };
+		2DBA175C6FB14F5EC09C3448 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10C783A986E7D2607505 /* UserInfoView.swift */; };
+		2DBA186BA310130891F2DC4E /* UnsplashImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18FB6249D019FCEC6225 /* UnsplashImage.swift */; };
+		2DBA1ACD55C1B4E37BFE0C60 /* UnsplashApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18DE9E7FABE4ABF0B02E /* UnsplashApiKey.swift */; };
 		2DBA1AE36F50513591A26B91 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1687F587702BD7A6B3BC /* MainVC.swift */; };
+		2DBA1AFB02081FB0DF25A24F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA184A9FFE07878E557C0A /* UIImageView.swift */; };
 		2DBA1B1177220686A376D6A2 /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA166119E0B561A4FBF554 /* MainVM.swift */; };
+		2DBA1C7F30E08C42000501B5 /* UnsplashRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA14CFBE26DB49C34D761D /* UnsplashRequests.swift */; };
+		2DBA1CAB0736D94217562794 /* ImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10D0C8504A9EF0C633E4 /* ImageCard.swift */; };
 		2DBA1DB6EB5DBE264BDAEC98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1F22B770581DF7DC4E49 /* LaunchScreen.storyboard */; };
+		2DBA1F5918943068B066F82D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA170C3FE6C4D404C7DAAE /* UIView.swift */; };
+		2DBA1F9E2A6D9B925D25F7AF /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA100FBEEB86F4072C6766 /* UnsplashService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DBA100FBEEB86F4072C6766 /* UnsplashService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
+		2DBA10C783A986E7D2607505 /* UserInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		2DBA10D0C8504A9EF0C633E4 /* ImageCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCard.swift; sourceTree = "<group>"; };
 		2DBA123DD71FC80A9456018D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		2DBA14CFBE26DB49C34D761D /* UnsplashRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashRequests.swift; sourceTree = "<group>"; };
 		2DBA158847D0D906F19F4066 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DBA166119E0B561A4FBF554 /* MainVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		2DBA1687F587702BD7A6B3BC /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		2DBA17024FF14A1440131A22 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2DBA170C3FE6C4D404C7DAAE /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		2DBA1807701D5B6DC3834C59 /* ImageInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInfoView.swift; sourceTree = "<group>"; };
+		2DBA184A9FFE07878E557C0A /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		2DBA18DE9E7FABE4ABF0B02E /* UnsplashApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashApiKey.swift; sourceTree = "<group>"; };
+		2DBA18FB6249D019FCEC6225 /* UnsplashImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashImage.swift; sourceTree = "<group>"; };
+		2DBA1A72648AE48C31826297 /* UnsplashUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashUserInfo.swift; sourceTree = "<group>"; };
+		2DBA1CD38344C93DD9D37AA3 /* InfoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoLabel.swift; sourceTree = "<group>"; };
 		2DBA1F22B770581DF7DC4E49 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA6C6E1827F961EA00EC2AAD /* RandomImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -35,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DBA1039AA7B72700BCC4895 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA14CFBE26DB49C34D761D /* UnsplashRequests.swift */,
+				2DBA18DE9E7FABE4ABF0B02E /* UnsplashApiKey.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		2DBA11D70B35CBD82600164E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +82,27 @@
 		2DBA12D632340ECB1F704994 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2DBA18FB6249D019FCEC6225 /* UnsplashImage.swift */,
+				2DBA1A72648AE48C31826297 /* UnsplashUserInfo.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2DBA14CF1A7931B64EB154B5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA100FBEEB86F4072C6766 /* UnsplashService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2DBA152D903B54D1F9C4E61B /* ImageCard */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA10D0C8504A9EF0C633E4 /* ImageCard.swift */,
+				2DBA1EE67C67A3CA6EBFA0CF /* Subviews */,
+			);
+			path = ImageCard;
 			sourceTree = "<group>";
 		};
 		2DBA155A2E96F5B4B482E6BA /* Resources */ = {
@@ -63,6 +113,15 @@
 				2DBA1F22B770581DF7DC4E49 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2DBA177C282378ACD734FC4E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA170C3FE6C4D404C7DAAE /* UIView.swift */,
+				2DBA184A9FFE07878E557C0A /* UIImageView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2DBA179E6A49BCFBEF7F69E6 /* Modules */ = {
@@ -85,6 +144,8 @@
 		2DBA1B3EB266725FC8707DEB /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				2DBA1039AA7B72700BCC4895 /* Network */,
+				2DBA14CF1A7931B64EB154B5 /* Services */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -92,6 +153,8 @@
 		2DBA1C7B904822DBB4CB7A20 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				2DBA177C282378ACD734FC4E /* Extensions */,
+				2DBA152D903B54D1F9C4E61B /* ImageCard */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -101,6 +164,16 @@
 			children = (
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		2DBA1EE67C67A3CA6EBFA0CF /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1807701D5B6DC3834C59 /* ImageInfoView.swift */,
+				2DBA10C783A986E7D2607505 /* UserInfoView.swift */,
+				2DBA1CD38344C93DD9D37AA3 /* InfoLabel.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		FA6C6E0F27F961EA00EC2AAD = {
@@ -201,6 +274,17 @@
 				2DBA1684D0BA7ACE95C47ABE /* AppDelegate.swift in Sources */,
 				2DBA1AE36F50513591A26B91 /* MainVC.swift in Sources */,
 				2DBA1B1177220686A376D6A2 /* MainVM.swift in Sources */,
+				2DBA186BA310130891F2DC4E /* UnsplashImage.swift in Sources */,
+				2DBA159D563B8FCE69D347CA /* UnsplashUserInfo.swift in Sources */,
+				2DBA1C7F30E08C42000501B5 /* UnsplashRequests.swift in Sources */,
+				2DBA1ACD55C1B4E37BFE0C60 /* UnsplashApiKey.swift in Sources */,
+				2DBA1F9E2A6D9B925D25F7AF /* UnsplashService.swift in Sources */,
+				2DBA1F5918943068B066F82D /* UIView.swift in Sources */,
+				2DBA1AFB02081FB0DF25A24F /* UIImageView.swift in Sources */,
+				2DBA1CAB0736D94217562794 /* ImageCard.swift in Sources */,
+				2DBA10506E6DFBD2D962474E /* ImageInfoView.swift in Sources */,
+				2DBA175C6FB14F5EC09C3448 /* UserInfoView.swift in Sources */,
+				2DBA15C26EEA22A36DF6804F /* InfoLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
