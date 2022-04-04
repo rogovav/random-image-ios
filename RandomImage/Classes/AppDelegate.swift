@@ -12,24 +12,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private var launchedWithUserActivity = false
-
     func application(
             _ application: UIApplication,
             didFinishLaunchingWithOptions options: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        let vc = MainVC()
         let window = UIWindow(frame: UIScreen.main.bounds)
+        let vc = setTabBar()
         window.rootViewController = vc
         window.makeKeyAndVisible()
         self.window = window
-
         return true
     }
 
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        // Override point for customization after application launch.
-//        return true
-//    }
+    private func setTabBar() -> UITabBarController {
+        let mainVC = UINavigationController(rootViewController: MainVC(MainVM()))
+        mainVC.title = "Image"
+        let bookmarksVC = UINavigationController(rootViewController: BookmarksVC(BookmarksVM()))
+        bookmarksVC.title = "Bookmarks"
+        let tabBarVC = UITabBarController()
+
+        if let items = tabBarVC.tabBar.items {
+            for index in 0..<items.count {
+                items[index].image = UIImage(named: "home-icon")?.withRenderingMode(.alwaysOriginal)
+                items[index].selectedImage = UIImage(named: "home-icon")?.withRenderingMode(.alwaysOriginal)
+            }
+        }
+
+        tabBarVC.setViewControllers([mainVC, bookmarksVC], animated: false)
+        tabBarVC.modalPresentationStyle = .fullScreen
+
+        return tabBarVC
+    }
 }
 
