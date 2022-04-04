@@ -17,7 +17,7 @@ class ImageInfoView: UIView {
 
     // MARK: - Properties
 
-    var model: UnsplashImage? {
+    var model: ImageInfoModel? {
         didSet {
             guard let _ = model else {
                 return
@@ -51,7 +51,6 @@ class ImageInfoView: UIView {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
 
-//        addSubviews([viewsInfo])
         addSubviews([viewsInfo, likesInfo, downloadsInfo])
 
         NSLayoutConstraint.activate([

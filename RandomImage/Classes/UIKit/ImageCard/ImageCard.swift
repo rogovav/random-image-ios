@@ -24,9 +24,9 @@ class ImageCard: UIView {
 
     var onBookmarkChange: ((Bool) -> Void)?
 
-    var imageData: UnsplashImage? {
+    var model: ImageCardModel? {
         didSet {
-            if imageData == nil {
+            if model == nil {
                 return
             }
             updateView()
@@ -115,10 +115,8 @@ class ImageCard: UIView {
     }
 
     func updateView() {
-        imageInfo.model = imageData
-        userInfo.model = imageData?.user
-        if let url = URL(string: imageData?.urls?.regular ?? "") {
-            imageBox.load(url: url)
-        }
+        imageInfo.model = model?.imageInfo
+        userInfo.model = model?.userInfo
+        imageBox.image = model?.image
     }
 }

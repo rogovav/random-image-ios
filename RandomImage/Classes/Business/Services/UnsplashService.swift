@@ -5,7 +5,7 @@
 //  Created by Alexander Rogov on 03.04.2022.
 //
 
-import Foundation
+import UIKit
 
 class UnsplashService {
     static let shared = UnsplashService()
@@ -31,5 +31,21 @@ class UnsplashService {
                 response(nil, error)
             }
         }
+    }
+
+    func loadImage(_ urlString: String?) -> UIImage? {
+        guard let url = URL(string: urlString ?? "") else {
+            return nil
+        }
+
+        var loadedImage: UIImage?
+
+        if let data = try? Data(contentsOf: url) {
+            if let image = UIImage(data: data) {
+                loadedImage = image
+            }
+        }
+
+        return loadedImage
     }
 }

@@ -18,7 +18,7 @@ class UserInfoView: UIView {
 
     // MARK: - Properties
 
-    var model: UnsplashUserInfo? {
+    var model: UserInfoModel? {
         didSet {
             guard let _ = model else {
                 return
@@ -97,11 +97,9 @@ class UserInfoView: UIView {
         fatalError("Shouldn't use this way")
     }
 
-    func setInfo() {
-        if let url = URL(string: model?.profileImage?.small ?? "") {
-            profileImage.load(url: url)
-        }
+    private func setInfo() {
+        profileImage.image = model?.image
         nameLabel.text = model?.name
-        userNameLabel.text = "@\(model?.username ?? "")"
+        userNameLabel.text = "@\(model?.userName ?? "")"
     }
 }

@@ -61,7 +61,7 @@ class InfoLabel: UIView {
         fatalError("Shouldn't use this way")
     }
 
-    func setInfo() {
+    private func setInfo() {
         titleLabel.text = info?.title
         infoLabel.text = info?.data
     }
