@@ -18,11 +18,11 @@ class ImageCard: UIView {
 
     // MARK: - Properties
 
-    var isActive: Bool = false
+    private var isActive: Bool = false
 
     var imageHeight: CGFloat?
 
-    var onBookmarkChange: ((Bool) -> Void)?
+    var onBookmarkChange: (() -> Void)?
 
     var model: ImageCardModel? {
         didSet {
@@ -61,7 +61,8 @@ class ImageCard: UIView {
 
     private lazy var bookmarkButton: UIButton = {
         let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false;
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(bookmarkImage, for: .normal)
         return button
     }()
 
@@ -72,7 +73,6 @@ class ImageCard: UIView {
 
         addSubviews([userInfo, imageBox, imageInfo, bookmarkButton])
 
-        bookmarkButton.setImage(bookmarkImage, for: .normal)
         bookmarkButton.addTarget(self, action: #selector(bookmarkAction), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
@@ -100,7 +100,8 @@ class ImageCard: UIView {
             imageInfo.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageInfo.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageInfo.topAnchor.constraint(equalTo: imageBox.bottomAnchor, constant: Constants.spacing),
-            imageInfo.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageInfo.heightAnchor.constraint(equalToConstant: 80),
+            imageInfo.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.spacing),
         ])
     }
 
@@ -109,14 +110,18 @@ class ImageCard: UIView {
     }
 
     @objc func bookmarkAction() {
-        bookmarkButton.setImage(isActive ? bookmarkImage : bookmarkImageActive, for: .normal)
         isActive.toggle()
-        onBookmarkChange?(isActive)
+        bookmarkButton.setImage(isActive ? bookmarkImageActive : bookmarkImage, for: .normal)
+        onBookmarkChange?()
     }
 
     func updateView() {
         imageInfo.model = model?.imageInfo
         userInfo.model = model?.userInfo
-        imageBox.image = model?.image
+        isActive = model?.isBookmark ?? false
+        bookmarkButton.setImage(isActive ? bookmarkImageActive : bookmarkImage, for: .normal)
+        if let imageData = model?.image {
+            imageBox.image = UIImage(data: imageData)
+        }
     }
 }

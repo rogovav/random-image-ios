@@ -7,9 +7,10 @@
 
 import UIKit
 
-struct ImageCardModel {
+struct ImageCardModel: Codable {
     let id: String?
     var userInfo: UserInfoModel?
     var imageInfo: ImageInfoModel?
-    var image: UIImage?
+    var image: Data?
+    var isBookmark: Bool
 }

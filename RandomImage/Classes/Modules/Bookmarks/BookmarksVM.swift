@@ -1,5 +1,5 @@
 //
-//  MainVM.swift
+//  BookmarksVM.swift
 //  RandomImage
 //
 //  Created by Alexander Rogov on 03.04.2022.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol MainViewModel {
-    func getImage(completion: ((ImageCardModel?, Bool) -> Void)?)
+protocol BookmarksViewModel {
+    func getItems(completion: (([String]) -> Void)?)
+    func getImage(_ id: String, completion: ((ImageCardModel?, Bool) -> Void)?)
     func updateBookmark(_ id: String)
-    func isBookmark(_ id: String) -> Bool
 }
 
-final class MainVM: MainViewModel {
+final class BookmarksVM: BookmarksViewModel {
     // MARK: - Properties
 
     let service = PersistenceService()
@@ -24,12 +24,17 @@ final class MainVM: MainViewModel {
         service.updateBookmark(id)
     }
 
-    func isBookmark(_ id: String) -> Bool {
-        service.bookmarks?.contains(id) ?? false
+    func getItems(completion: (([String]) -> Void)?) {
+        guard let bookmarks = service.bookmarks else {
+            completion?([])
+            return
+        }
+
+        completion?(bookmarks)
     }
 
-    func getImage(completion: ((ImageCardModel?, Bool) -> Void)?) {
-        UnsplashService.shared.getPhoto("random") { [weak self] data, error in
+    func getImage(_ id: String, completion: ((ImageCardModel?, Bool) -> Void)?) {
+        UnsplashService.shared.getPhoto(id) { [weak self] data, error in
             guard let self = self else {
                 return
             }

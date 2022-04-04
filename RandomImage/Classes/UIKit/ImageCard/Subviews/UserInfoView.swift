@@ -98,7 +98,9 @@ class UserInfoView: UIView {
     }
 
     private func setInfo() {
-        profileImage.image = model?.image
+        if let imageData = model?.image {
+            profileImage.image = UIImage(data: imageData)
+        }
         nameLabel.text = model?.name
         userNameLabel.text = "@\(model?.userName ?? "")"
     }

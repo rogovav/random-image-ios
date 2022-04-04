@@ -24,7 +24,7 @@ class UnsplashService {
                     let image = try self.decoder.decode(UnsplashImage.self, from: data)
                     response(image, nil)
                 } catch let jsonError {
-                    print("Failed to decode JSON", jsonError)
+                    print("Failed to decode JSON: \(jsonError)")
                 }
             case let .failure(error):
                 print("Error received requesting data: \(error.localizedDescription)")
@@ -33,19 +33,13 @@ class UnsplashService {
         }
     }
 
-    func loadImage(_ urlString: String?) -> UIImage? {
+    func loadImageData(_ urlString: String?) -> Data? {
         guard let url = URL(string: urlString ?? "") else {
             return nil
         }
 
-        var loadedImage: UIImage?
+        guard let data = try? Data(contentsOf: url) else { return nil }
 
-        if let data = try? Data(contentsOf: url) {
-            if let image = UIImage(data: data) {
-                loadedImage = image
-            }
-        }
-
-        return loadedImage
+        return data
     }
 }

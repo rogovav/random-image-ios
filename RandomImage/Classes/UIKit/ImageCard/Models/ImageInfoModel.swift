@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageInfoModel {
+struct ImageInfoModel: Codable {
     let likes: Int?
     let views: Int?
     let downloads: Int?

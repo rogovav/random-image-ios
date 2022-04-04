@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct UserInfoModel {
+struct UserInfoModel: Codable {
     let name: String?
     let userName: String?
-    var image: UIImage?
+    var image: Data?
 }

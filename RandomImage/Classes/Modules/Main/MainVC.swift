@@ -22,8 +22,15 @@ final class MainVC: UIViewController {
     private var timeToUpdate: Int = 0
 
     private let viewModel: MainViewModel?
+    private var currentModel: ImageCardModel?
 
     // MARK: - Components
+
+    private lazy var noSignalView: NoSignalView = {
+        let view = NoSignalView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     private lazy var imageCard: ImageCard = {
         let card = ImageCard()
@@ -74,8 +81,24 @@ final class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController!.navigationBar.isHidden = true
         setViews()
         getImage()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if (noSignalView.isHidden) {
+            guard let id = currentModel?.id else {
+                return
+            }
+            if (currentModel?.isBookmark != viewModel?.isBookmark(id) ?? false) {
+                currentModel?.isBookmark.toggle()
+                updateImage()
+            }
+        } else {
+            getImage()
+        }
     }
 
     private func setViews() {
@@ -83,7 +106,9 @@ final class MainVC: UIViewController {
 
         timerView.addSubviews([timerLabel, timerInfo])
 
-        view.addSubviews([imageCard, timerView])
+        view.addSubviews([imageCard, timerView, noSignalView])
+
+        noSignalView.isHidden = true
 
         let guide = view.safeAreaLayoutGuide
 
@@ -109,28 +134,46 @@ final class MainVC: UIViewController {
             timerInfo.topAnchor.constraint(equalTo: timerLabel.bottomAnchor, constant: Constants.timerToText),
             timerInfo.centerXAnchor.constraint(equalTo: timerView.centerXAnchor),
         ])
+
+        NSLayoutConstraint.activate([
+            noSignalView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            noSignalView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
     }
 
-    private func bookmarkAction(_ id: String?, isActive: Bool) {
-        guard let id = id else { return }
-        isActive ? viewModel?.deleteBookmark(id) : viewModel?.addBookmark(id)
+    private func bookmarkAction() {
+        guard let id = currentModel?.id else { return }
+        viewModel?.updateBookmark(id)
+        currentModel?.isBookmark.toggle()
     }
 
     private func getImage() {
-        viewModel?.getImage(completion: { [weak self] model in
+        viewModel?.getImage(completion: { [weak self] model, notConnected in
             guard let self = self else { return }
-            self.imageCard.model = model
-            self.imageCard.onBookmarkChange = { [weak self] isActive in
-                self?.bookmarkAction(model?.id, isActive: isActive)
+            self.currentModel = model
+            self.updateImage()
+            if (notConnected) {
+                self.noSignalView.isHidden = false
+            } else {
+                self.noSignalView.isHidden = true
+                self.startTimer()
             }
-            self.startTimer()
         })
+    }
+
+    private func updateImage() {
+        imageCard.model = currentModel
+        imageCard.onBookmarkChange = { [weak self] in
+            self?.bookmarkAction()
+        }
     }
 
     private func startTimer() {
         guard timer == nil else {
             return
         }
+
+        timerView.isHidden = false
 
         timeToUpdate = initialTime
 
@@ -146,7 +189,6 @@ final class MainVC: UIViewController {
     }
 
     @objc private func updateLabel() {
-        timerView.isHidden = false
         timeToUpdate -= 1
         let minutes = timeToUpdate / 60
         let seconds = timeToUpdate % 60
